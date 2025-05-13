@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Pangkat Point Blank</title>
+    <meta name="description" content="Kalkulator interaktif untuk menghitung progres pangkat pada game Point Blank">
+
+    <link rel="icon" href="asset/pb-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="container">
+            <div class="header">
+                <h1 class="title glow-text">KALKULATOR PANGKAT POINT BLANK</h1>
+                <p class="description">
+                    Hitung progres pangkat dan EXP yang dibutuhkan dalam game Point Blank
+                </p>
+            </div>
+
+            <div class="main-grid">
+                <div class="input-column">
+                    <div class="input-group">
+                        <label for="current-rank" class="label">Pangkat Saat Ini</label>
+                        <div class="select-container">
+                            <select id="current-rank" class="select">
+                                <option value="" disabled selected>Pilih Pangkat Saat Ini</option>
+                            </select>
+                            <button id="clear-current-rank" class="clear-button" aria-label="Clear Current Rank">&times;</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="current-exp" class="label">EXP Saat Ini (0-100%)</label>
+                        <div class="input-container">
+                            <input type="number" id="current-exp" class="input" placeholder="0" min="0" max="100">
+                            <button id="clear-current-exp" class="clear-button" aria-label="Clear Current EXP">&times;</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="additional-exp" class="label">Tambahan EXP</label>
+                        <div class="input-container">
+                            <input type="number" id="additional-exp" class="input" placeholder="0" min="0" max="999999999">
+                            <button id="clear-additional-exp" class="clear-button" aria-label="Clear Additional EXP">&times;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-column">
+                    <div class="input-group">
+                        <label for="target-rank" class="label">Pangkat Tujuan</label>
+                        <div class="select-container">
+                            <select id="target-rank" class="select">
+                                <option value="" disabled selected>Pilih Pangkat Tujuan</option>
+                            </select>
+                            <button id="clear-target-rank" class="clear-button" aria-label="Clear Target Rank">&times;</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="target-exp" class="label">EXP Tujuan (0-100%)</label>
+                        <div class="input-container">
+                            <input type="number" id="target-exp" class="input" placeholder="0" min="0" max="100">
+                            <button id="clear-target-exp" class="clear-button" aria-label="Clear Target EXP">&times;</button>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="clear-all" class="button glow-button">Clear All</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error-alert" class="alert alert-error" style="display: none;">
+                <p>
+                    Pilih Pangkat Tujuan yang sama atau lebih besar dari Pangkat Saat Ini
+                </p>
+            </div>
+
+            <div class="card results-card">
+                <div class="card-header">
+                    <h2 class="card-title">Hasil Perhitungan</h2>
+                </div>
+                <div class="card-content" id="results-content">
+                    <p class="placeholder-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+                <p>&copy; 2025 | Dibuat dengan ❤️ untuk nostalgia </p>
+        </footer>
+    </div>
+
+    <div id="floating-audio-controls">
+        <button id="play-pause-button" class="button" aria-label="Play/Pause Audio">
+            <span>▶️</span>
+        </button>
+    </div>
+
+    <audio id="audio-player" loop autoplay>
+        <source src="asset/sountrack-pb.mp3" type="audio/mpeg">
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>
